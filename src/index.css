@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", sans-serif;
+
+  --color-primary: #0A1A2E;
+  --color-accent: #7C45A3;
+  --color-lavender: #C8B3DF;
+  --color-grey: #606F82;
+  --color-white: #F8F8F8;
+  --color-charcoal: #212121;
+
+  --background-image-hero-gradient: linear-gradient(135deg, #7C45A3, #7CA5A3);
+}
+
+@layer base {
+  body {
+    @apply bg-primary text-white font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-2xl border border-white/5 shadow-2xl;
+  }
+
+  .neumorph-btn {
+    @apply shadow-[5px_5px_15px_#050d17,-5px_-5px_15px_#0f2745] hover:shadow-[inset_5px_5px_10px_#050d17,inset_-5px_-5px_10px_#0f2745] transition-all duration-500 hover:scale-105 active:scale-95;
+  }
+
+  .glow-accent {
+    @apply shadow-[0_0_20px_rgba(124,69,163,0.4)] hover:shadow-[0_0_35px_rgba(124,69,163,0.7)] transition-shadow duration-500;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)];
+  }
+
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-accent via-lavender to-cyan-400;
+  }
+
+  .border-gradient {
+    @apply relative before:absolute before:inset-0 before:p-[1px] before:bg-gradient-to-r before:from-accent before:to-lavender before:rounded-[inherit] before:-z-10 before:content-[''];
+  }
+}
